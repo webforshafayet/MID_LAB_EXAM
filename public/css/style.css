@@ -1,0 +1,54 @@
+body{
+	 background: linear-gradient(50deg, #49a09d, #322c82);
+     background-size: cover;
+
+	font-family: sans-serif;
+	font-weight: 200;
+}
+
+table {
+
+	width: 700px;
+	border-collapse:collapse;
+    border: transparent;
+    border-radius: 25px;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    border-radius: 5px;
+     background: transparent;
+}
+
+td,h2,h3,legend{
+	padding: 15px;
+
+	color: #fff;
+    text-decoration: none;
+
+
+}
+
+
+a{
+	padding: 4px;
+
+	color: white;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    font-weight: 1000;
+    background:cadetblue ;
+
+
+
+}
+
+h1{
+	padding: 15px;
+    padding: 5px;
+
+	color: #fff;
+    font-weight: bold;
+
+
+
+}
