@@ -4,17 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
-use App\Models\movielist;
-use App\Http\Requests\movieRequest;
+use App\Models\softwarelist;
+use App\Http\Requests\softwareRequest;
 
-class movieController extends Controller
+class softwareController extends Controller
 {
-
     public function productshow($id){
 
-        $user = movielist::find($id);
+        $user = softwarelist::find($id);
         //print_r($user);
-        return view('home.moviedetails')->with('user', $user);
+        return view('home.softwaredetails')->with('user', $user);
     }
 
 
@@ -22,7 +21,7 @@ class movieController extends Controller
 
     public function productcreate(){
 
-        return view('home.moviecreate');
+        return view('home.softwarecreate');
     }
 
 
@@ -53,7 +52,7 @@ class movieController extends Controller
             $filename = time().".".$file->getClientOriginalExtension();
             $file->move('upload', $filename);
 
-            $user = new movielist();
+            $user = new softwarelist();
 
         //$user->moviename = $req->moviename;
 
@@ -63,7 +62,7 @@ class movieController extends Controller
             $user->save();
 
 
-           return redirect('/home/movielist');
+           return redirect('/home/softwarelist');
         }
 
 
@@ -73,8 +72,8 @@ class movieController extends Controller
 
     public function productedit($id){
 
-      $user =movielist::find($id);
-      return view('home.movieedit')->with('user', $user);
+      $user =softwarelist::find($id);
+      return view('home.softwareedit')->with('user', $user);
 
 
     }
@@ -98,7 +97,7 @@ class movieController extends Controller
         //    }
 
 
-        $user = movielist::find($id);
+        $user = softwarelist::find($id);
 
       //  $user->moviename = $req->moviename;
 
@@ -106,28 +105,28 @@ class movieController extends Controller
 
         $user->save();
 
-        return redirect('/home/movielist');
+        return redirect('/home/softwarelist');
     }
     public function productlist(){
 
 
 
-        $userlist = movielist::all();
+        $userlist = softwarelist::all();
 
-        return view('home.movielist')->with('list', $userlist);
+        return view('home.softwarelist')->with('list', $userlist);
 
     }
 
     public function productlist_search(Request $req){
 
         $search=$req->input('search');
-        $userlist=movielist::query()
+        $userlist=softwarelist::query()
         ->where('productname','LIKE',"%{$search}%")
         ->orwhere('catagory','LIKE',"%{$search}%")
         ->orwhere('status','LIKE',"%{$search}%")
         ->get();
 
-        return view('home.movielist')->with('list', $userlist);
+        return view('home.softwarelist')->with('list', $userlist);
     }
 
 
@@ -135,16 +134,16 @@ class movieController extends Controller
 
     public function productdelete($id){
 
-        $user = movielist::find($id);
-        return view('home.moviedelete')->with('user', $user);
+        $user = softwarelist::find($id);
+        return view('home.softwaredelete')->with('user', $user);
     }
 
     public function productdestroy($id){
 
-        if(movielist::destroy($id)){
-            return redirect('/home/movielist');
+        if(softwarelist::destroy($id)){
+            return redirect('/home/softwarelist');
         }else{
-            return redirect('/home/moviedelete/'.$id);
+            return redirect('/home/softwaredelete/'.$id);
         }
 
     }
