@@ -168,4 +168,19 @@ Route::get('/home/admin_profile', 'App\Http\Controllers\adminprofileController@a
 Route::get('/home/admin_profile_edit/{id}', 'App\Http\Controllers\adminprofileController@admin_profile_edit');
 Route::post('/home/admin_profile_edit/{id}', 'App\Http\Controllers\adminprofileController@admin_profile_update');
 
+/// movie list
+
+Route::get('/home/movielist', 'App\Http\Controllers\movieController@productlist')->name('home.productlist');
+Route::get('/home/movielist/search', 'App\Http\Controllers\movieController@productlist_search');
+
+Route::get('/home/moviecreate', 'App\Http\Controllers\movieController@productcreate')->middleware('sess')->name('home.productcreate');
+Route::post('/home/moviecreate', 'App\Http\Controllers\movieController@productstore');
+
+Route::get('/home/movieedit/{id}', 'App\Http\Controllers\movieController@productedit');//edittttt start
+Route::post('/home/movieedit/{id}', 'App\Http\Controllers\movieController@productupdate');
+
+Route::get('/home/moviedelete/{id}', 'App\Http\Controllers\movieController@productdelete');
+Route::post('/home/moviedelete/{id}', 'App\Http\Controllers\movieController@productdestroy');
+
+Route::get('/home/moviedetails/{id}', 'App\Http\Controllers\movieController@productshow');
 });
