@@ -183,4 +183,21 @@ Route::get('/home/moviedelete/{id}', 'App\Http\Controllers\movieController@produ
 Route::post('/home/moviedelete/{id}', 'App\Http\Controllers\movieController@productdestroy');
 
 Route::get('/home/moviedetails/{id}', 'App\Http\Controllers\movieController@productshow');
+
+
+/// software list
+
+Route::get('/home/softwarelist', 'App\Http\Controllers\softwareController@productlist')->name('home.productlist');
+Route::get('/home/softwarelist/search', 'App\Http\Controllers\softwareController@productlist_search');
+
+Route::get('/home/softwarecreate', 'App\Http\Controllers\softwareController@productcreate')->middleware('sess')->name('home.productcreate');
+Route::post('/home/softwarecreate', 'App\Http\Controllers\softwareController@productstore');
+
+Route::get('/home/softwareedit/{id}', 'App\Http\Controllers\softwareController@productedit');//edittttt start
+Route::post('/home/softwareedit/{id}', 'App\Http\Controllers\softwareController@productupdate');
+
+Route::get('/home/softwaredelete/{id}', 'App\Http\Controllers\softwareController@productdelete');
+Route::post('/home/softwaredelete/{id}', 'App\Http\Controllers\softwareController@productdestroy');
+
+Route::get('/home/softwaredetails/{id}', 'App\Http\Controllers\softwareController@productshow');
 });

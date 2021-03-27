@@ -22,6 +22,7 @@
      <a href="/home/productlist">highlighted content list</a> |
     <a href="/home/contentlist">View all content list</a><br>
     <a href="/home/movielist">all movies list</a><br>
+    <a href="/home/softwarelist">all software list</a><br>
 
 
     <br>
